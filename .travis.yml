@@ -1,0 +1,14 @@
+language: ruby
+sudo: required
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: build
+      before_install:
+        - docker build -t nishantagarwal/flask_service:latest -f Dockerfile .
+      script:
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker push nishantagarwal/flask_service:latest
