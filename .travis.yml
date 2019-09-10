@@ -8,7 +8,7 @@ jobs:
   include:
     - stage: build
       before_install:
-        - docker build -t nishantagarwal/flask_service:latest -f Dockerfile .
+        - docker build -t nishantagarwal/flask_service:1.0 -f Dockerfile .
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - docker push nishantagarwal/flask_service:latest
+        - docker push nishantagarwal/flask_service:1.0
