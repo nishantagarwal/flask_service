@@ -14,7 +14,7 @@ def set_session():
 def index():
     if 'username' in session:
         return 'Logged in as %s' % escape(session['username'])
-    return "Anonymous user, Pod Id: {}".format(session["pod"])
+    return "Anonymous user, Pod Id: {}\n".format(session["pod"])
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
