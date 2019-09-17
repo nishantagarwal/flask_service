@@ -12,10 +12,9 @@ def set_session():
 
 @app.route('/')
 def index():
-    print("Pod Id: {}".format(session["pod"]))
     if 'username' in session:
         return 'Logged in as %s' % escape(session['username'])
-    return 'You are not logged in'
+    return "Anonymous user, Pod Id: {}".format(session["pod"])
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
